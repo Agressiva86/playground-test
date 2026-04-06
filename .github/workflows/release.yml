@@ -30,7 +30,9 @@ jobs:
             New theme release for WordPress Playground.
             
             Download the `theme.zip` below and use it in your [WordPress Playground](https://playground.wordpress.net/) blueprint.
-          files: theme.zip
+          files: |
+            theme.zip
+            export.wxr
           draft: false
           prerelease: false
 
@@ -43,7 +45,9 @@ jobs:
             The most recent theme release.
             
             [Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/${{ github.repository }}/main/blueprint.json)
-          files: theme.zip
+          files: |
+            theme.zip
+            export.wxr
           draft: false
           prerelease: false
           make_latest: true

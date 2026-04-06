@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Custom block theme development with WP Playground",
   "scripts": {
-    "start": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --blueprint=blueprint-local.json",
-    "playground:clean": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --blueprint=blueprint-local.json",
+    "start": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
+    "playground:clean": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
     "build:snapshot": "npx @wp-playground/cli@latest build-snapshot --blueprint=blueprint.json --outfile=./theme-demo.zip"
   },
   "keywords": [

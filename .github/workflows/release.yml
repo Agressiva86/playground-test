@@ -17,9 +17,9 @@ jobs:
 
       - name: Zip Theme
         run: |
-          cd theme
-          zip -r ../theme.zip .
-          cd ..
+          mkdir playground-test-theme
+          cp -r theme/* playground-test-theme/
+          zip -r theme.zip playground-test-theme/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

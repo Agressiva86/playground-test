@@ -16,13 +16,13 @@
 		{
 			"step": "setSiteOptions",
 			"options": {
-				"blogname": "Playground Theme Dev",
-				"blogdescription": "Developing my custom block theme"
+				"blogname": "Playground Theme Preview",
+				"blogdescription": "Remote preview of my block theme"
 			}
 		},
 		{
 			"step": "runPHP",
-			"code": "<?php\n// 1. Download the ZIP\n$user = 'Agressiva86';\n$repo = 'playground-test';\n$zip_url = \"https://github.com/$user/$repo/archive/refs/heads/main.zip\";\n$zip_content = @file_get_contents($zip_url);\nif (!$zip_content) return;\n\nfile_put_contents('/tmp/repo.zip', $zip_content);\n\n// 2. Extract the ZIP\n$zip = new ZipArchive;\nif ($zip->open('/tmp/repo.zip') === TRUE) {\n    $zip->extractTo('/tmp/extracted');\n    $zip->close();\n\n    // 3. Find the theme folder (GitHub ZIPs have a top-level folder like 'repo-main')\n    $root_dirs = glob('/tmp/extracted/*', GLOB_ONLYDIR);\n    if (empty($root_dirs)) return;\n    \n    $source_dir = $root_dirs[0] . '/theme';\n    $dest_dir = WP_CONTENT_DIR . '/themes/playground-test-theme';\n\n    if (!is_dir($source_dir)) return;\n\n    // 4. Create destination and copy files\n    if (!file_exists($dest_dir)) mkdir($dest_dir, 0777, true);\n    \n    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source_dir, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::SELF_FIRST);\n    foreach ($it as $file) {\n        $target = $dest_dir . DIRECTORY_SEPARATOR . $it->getSubPathName();\n        if ($file->isDir()) {\n            if (!file_exists($target)) mkdir($target);\n        } else {\n            copy($file->getRealPath(), $target);\n        }\n    }\n} ?>"
+			"code": "<?php\n$user = 'Agressiva86';\n$repo = 'playground-test';\n$theme_slug = 'playground-test-theme';\n\n// 1. Download ZIP\n$url = \"https://github.com/$user/$repo/archive/refs/heads/main.zip\";\n$content = @file_get_contents($url);\nif (!$content) return;\nfile_put_contents('/tmp/repo.zip', $content);\n\n// 2. Extract ZIP\n$za = new ZipArchive;\nif ($za->open('/tmp/repo.zip') === TRUE) {\n    $za->extractTo('/tmp/extracted');\n    $za->close();\n    \n    // 3. Find theme folder\n    $dirs = glob('/tmp/extracted/*', GLOB_ONLYDIR);\n    if (!$dirs) return;\n    $src = $dirs[0] . '/theme';\n    if (!is_dir($src)) return;\n    \n    // 4. Define destination\n    $dest = is_dir('/wordpress') ? '/wordpress/wp-content/themes/' : '/var/www/html/wp-content/themes/';\n    $dest .= $theme_slug;\n    \n    // 5. Copy files\n    if (!function_exists('move_theme')) {\n        function move_theme($s, $d) {\n            if (!is_dir($d)) mkdir($d, 0777, true);\n            foreach (scandir($s) as $f) {\n                if ($f === '.' || $f === '..') continue;\n                if (is_dir(\"$s/$f\")) move_theme(\"$s/$f\", \"$d/$f\");\n                else copy(\"$s/$f\", \"$d/$f\");\n            }\n        }\n    }\n    move_theme($src, $dest);\n} ?>"
 		},
 		{
 			"step": "activateTheme",

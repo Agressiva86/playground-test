@@ -1,0 +1,32 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Playground Theme Dev",
+				"blogdescription": "Developing my custom block theme"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\n// Dynamically determine the user and repo if possible\n// (Fallbacks for when placeholders aren't yet replaced)\n$user = 'USER';\n$repo = 'REPO';\n\n// 1. Download the ZIP\n$zip_url = \"https://github.com/$user/$repo/archive/refs/heads/main.zip\";\n$zip_content = @file_get_contents($zip_url);\nif (!$zip_content) return;\n\nfile_put_contents('/tmp/repo.zip', $zip_content);\n\n// 2. Extract the ZIP\n$zip = new ZipArchive;\nif ($zip->open('/tmp/repo.zip') === TRUE) {\n    $zip->extractTo('/tmp/extracted');\n    $zip->close();\n\n    // 3. Find the theme folder\n    $extracted_dirs = glob('/tmp/extracted/*', GLOB_ONLYDIR);\n    if (empty($extracted_dirs)) return;\n    \n    $source_dir = $extracted_dirs[0] . '/theme';\n    $dest_dir = '/var/www/html/wp-content/themes/playground-test-theme';\n\n    if (!is_dir($source_dir)) return;\n\n    // 4. Create destination and copy files\n    if (!file_exists($dest_dir)) mkdir($dest_dir, 0777, true);\n    \n    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source_dir, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::SELF_FIRST);\n    foreach ($it as $file) {\n        $target = $dest_dir . DIRECTORY_SEPARATOR . $it->getSubPathName();\n        if ($file->isDir()) {\n            if (!file_exists($target)) mkdir($target);\n        } else {\n            copy($file->getRealPath(), $target);\n        }\n    }\n} ?>"
+		},
+		{
+			"step": "activateTheme",
+			"themeFolderName": "playground-test-theme"
+		}
+	]
+}

@@ -32,7 +32,7 @@ jobs:
             Download the `theme.zip` below and use it in your [WordPress Playground](https://playground.wordpress.net/) blueprint.
           files: |
             theme.zip
-            export.wxr
+            content/export.wxr
           draft: false
           prerelease: false
 
@@ -47,7 +47,7 @@ jobs:
             [Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/${{ github.repository }}/main/blueprint.json)
           files: |
             theme.zip
-            export.wxr
+            content/export.wxr
           draft: false
           prerelease: false
           make_latest: true

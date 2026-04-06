@@ -17,18 +17,20 @@ This project contains a custom WordPress block theme and a WP Playground bluepri
 You can share a "Live Preview" of this theme with others using the updated `blueprint.json`.
 
 ### 1. Push to GitHub
-Upload your project to a GitHub repository (e.g., `https://github.com/YOUR_USER/YOUR_REPO`).
+Upload your project to your GitHub repository: `https://github.com/Agressiva86/playground-test`.
 
 ### 2. Update Placeholders
-In `blueprint.json`, update the following variables inside the `runPHP` step:
-- `$user = 'YOUR_USER';`
-- `$repo = 'YOUR_REPO';`
+I have updated the variables inside the `runPHP` step in `blueprint.json` for you:
+- `$user = 'Agressiva86';`
+- `$repo = 'playground-test';`
 
 ### 3. Share the Link
-Once the file is on GitHub, anyone can preview the theme by clicking a link in this format:
+Anyone can preview your theme live by clicking this link:
+
+[**Live Preview in WordPress Playground**](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Agressiva86/playground-test/main/blueprint.json)
 
 ```text
-https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/blueprint.json
+https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Agressiva86/playground-test/main/blueprint.json
 ```
 
 ## Local Development

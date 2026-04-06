@@ -21,8 +21,11 @@
 			}
 		},
 		{
-			"step": "runPHP",
-			"code": "<?php\n$user = 'Agressiva86';\n$repo = 'playground-test';\n$theme_slug = 'playground-test-theme';\n\n// 1. Download ZIP\n$url = \"https://github.com/$user/$repo/archive/refs/heads/main.zip\";\n$content = @file_get_contents($url);\nif (!$content) return;\nfile_put_contents('/tmp/repo.zip', $content);\n\n// 2. Extract ZIP\n$za = new ZipArchive;\nif ($za->open('/tmp/repo.zip') === TRUE) {\n    $za->extractTo('/tmp/extracted');\n    $za->close();\n    \n    // 3. Find theme folder\n    $dirs = glob('/tmp/extracted/*', GLOB_ONLYDIR);\n    if (!$dirs) return;\n    $src = $dirs[0] . '/theme';\n    if (!is_dir($src)) return;\n    \n    // 4. Define destination\n    $dest = is_dir('/wordpress') ? '/wordpress/wp-content/themes/' : '/var/www/html/wp-content/themes/';\n    $dest .= $theme_slug;\n    \n    // 5. Copy files\n    if (!function_exists('move_theme')) {\n        function move_theme($s, $d) {\n            if (!is_dir($d)) mkdir($d, 0777, true);\n            foreach (scandir($s) as $f) {\n                if ($f === '.' || $f === '..') continue;\n                if (is_dir(\"$s/$f\")) move_theme(\"$s/$f\", \"$d/$f\");\n                else copy(\"$s/$f\", \"$d/$f\");\n            }\n        }\n    }\n    move_theme($src, $dest);\n} ?>"
+			"step": "installTheme",
+			"themeZipFile": {
+				"resource": "url",
+				"url": "https://github.com/Agressiva86/playground-test/releases/download/latest/theme.zip"
+			}
 		},
 		{
 			"step": "activateTheme",

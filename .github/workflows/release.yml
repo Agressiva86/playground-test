@@ -1,0 +1,49 @@
+name: Create Theme Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Zip Theme
+        run: |
+          cd theme
+          zip -r ../theme.zip .
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ github.run_number }}"
+          name: "Release v${{ github.run_number }}"
+          body: |
+            New theme release for WordPress Playground.
+            
+            Download the `theme.zip` below and use it in your [WordPress Playground](https://playground.wordpress.net/) blueprint.
+          files: theme.zip
+          draft: false
+          prerelease: false
+
+      - name: Update Latest Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "latest"
+          name: "Latest Release"
+          body: |
+            The most recent theme release.
+            
+            [Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/${{ github.repository }}/main/blueprint.json)
+          files: theme.zip
+          draft: false
+          prerelease: false
+          make_latest: true

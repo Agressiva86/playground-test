@@ -1,16 +1,17 @@
 {
-  "name": "playground-test-theme",
+  "name": "playground-patterns-plugin",
   "version": "0.1.0",
-  "description": "Custom block theme development with WP Playground",
+  "description": "Custom block patterns plugin development with WP Playground",
   "scripts": {
-    "start": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
-    "playground:clean": "npx @wp-playground/cli@latest server --mount=\"./theme:/wordpress/wp-content/themes/playground-test-theme\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
+    "start": "npx @wp-playground/cli@latest server --mount=\"./plugin:/wordpress/wp-content/plugins/playground-patterns\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
+    "playground:clean": "npx @wp-playground/cli@latest server --mount=\"./plugin:/wordpress/wp-content/plugins/playground-patterns\" --mount=\"./content:/wordpress/content\" --blueprint=blueprint-local.json",
     "build:snapshot": "npx @wp-playground/cli@latest build-snapshot --blueprint=blueprint.json --outfile=./theme-demo.zip"
   },
   "keywords": [
     "wordpress",
     "playground",
-    "block-theme"
+    "block-patterns",
+    "plugin"
   ],
   "author": "",
   "license": "ISC"

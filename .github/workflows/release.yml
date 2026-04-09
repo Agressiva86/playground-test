@@ -1,4 +1,4 @@
-name: Create Theme Release
+name: Create Plugin Release
 
 on:
   push:
@@ -15,11 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Zip Theme
+      - name: Zip Plugin
         run: |
-          mkdir playground-test-theme
-          cp -r theme/* playground-test-theme/
-          zip -r theme.zip playground-test-theme/
+          rm -rf playground-patterns plugin.zip
+          mkdir playground-patterns
+          cp -a plugin/. playground-patterns/
+          zip -r plugin.zip playground-patterns/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -27,11 +28,11 @@ jobs:
           tag_name: "v${{ github.run_number }}"
           name: "Release v${{ github.run_number }}"
           body: |
-            New theme release for WordPress Playground.
-            
-            Download the `theme.zip` below and use it in your [WordPress Playground](https://playground.wordpress.net/) blueprint.
+            New patterns plugin release for WordPress Playground.
+
+            Download the `plugin.zip` below and use it in your [WordPress Playground](https://playground.wordpress.net/) blueprint.
           files: |
-            theme.zip
+            plugin.zip
             content/export.wxr
           draft: false
           prerelease: false
@@ -42,12 +43,11 @@ jobs:
           tag_name: "latest"
           name: "Latest Release"
           body: |
-            The most recent theme release.
-            
+            The most recent patterns plugin release.
+
             [Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/${{ github.repository }}/main/blueprint.json)
           files: |
-            theme.zip
+            plugin.zip
             content/export.wxr
           draft: false
           prerelease: false
-          make_latest: true

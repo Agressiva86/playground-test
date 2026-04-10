@@ -40,6 +40,10 @@ function playground_register_patterns() {
                 continue; // Skip if no PHP closing tag found
             }
 
+            // Expand plugin-relative image placeholders to the actual plugin URL
+            $plugin_url = plugin_dir_url(__FILE__) . 'images/';
+            $html_content = str_replace('__PLUGIN_URL__', esc_url($plugin_url), $html_content);
+
             // Extract pattern metadata from PHP comments
             $title = '';
             $slug = '';

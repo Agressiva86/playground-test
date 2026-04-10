@@ -34,14 +34,14 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"id":12,"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fixed","flexSize":"50%"},"border":{"radius":{"topLeft":"0px","topRight":"0px","bottomLeft":"0px","bottomRight":"0px"}}}} -->
-<figure class="wp-block-image size-full has-custom-border"><img src="http://extendify-playground.test/wp-content/uploads/2026/04/beautiful-female-office-worker-carrying-out-administrative-work-company-scaled.jpg" alt="" class="wp-image-12" style="border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;aspect-ratio:4/3;object-fit:cover"/></figure>
+<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fixed","flexSize":"50%"},"border":{"radius":{"topLeft":"0px","topRight":"0px","bottomLeft":"0px","bottomRight":"0px"}}}} -->
+<figure class="wp-block-image size-full has-custom-border"><img src="__PLUGIN_URL__beautiful-female-office-worker-carrying-out-administrative-work-company-scaled.jpg" alt="" style="border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;aspect-ratio:4/3;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"bottom"}} -->
-<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:var(--wp--preset--spacing--50);padding-bottom:0;padding-left:var(--wp--preset--spacing--50)"><!-- wp:image {"id":26,"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fixed","flexSize":"500px"}}} -->
-<figure class="wp-block-image size-full"><img src="http://extendify-playground.test/wp-content/uploads/2026/04/stylish-female-web-programmers-talking-about-work-while-spending-time-office-indoor-portrait-african-woman-headphones-asian-worker-using-computers-scaled.jpg" alt="" class="wp-image-26" style="aspect-ratio:4/3;object-fit:cover"/></figure>
+<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:var(--wp--preset--spacing--50);padding-bottom:0;padding-left:var(--wp--preset--spacing--50)"><!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fixed","flexSize":"500px"}}} -->
+<figure class="wp-block-image size-full"><img src="__PLUGIN_URL__stylish-female-web-programmers-talking-about-work-while-spending-time-office-indoor-portrait-african-woman-headphones-asian-worker-using-computers-scaled.jpg" alt="" style="aspect-ratio:4/3;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50","padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"layout":{"selfStretch":"fill","flexSize":null}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->

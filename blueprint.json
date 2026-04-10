@@ -24,7 +24,9 @@
 			"step": "setSiteOptions",
 			"options": {
 				"blogname": "Playground Theme Preview",
-				"blogdescription": "Remote preview of my block theme"
+				"blogdescription": "Remote preview of my block theme",
+				"show_on_front": "page",
+				"page_on_front": 11
 			}
 		},
 		{

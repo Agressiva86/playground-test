@@ -1,3 +1,10 @@
+<?php
+/**
+ * Title: Hero Pattern v2
+ * Slug: playground-patterns/hero
+ * Categories: playground-patterns
+ */
+?>
 <!-- wp:group {"metadata":{"name":"Hero Pattern v2 - fixed"},"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
 <div class="wp-block-columns alignwide" style="padding-right:0;padding-left:0"><!-- wp:column {"verticalAlignment":"bottom"} -->
@@ -29,7 +36,7 @@
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"bottom"} -->
-<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:cover {"url":"http://extendify-playground.test/wp-content/uploads/2026/04/beautiful-female-office-worker-carrying-out-administrative-work-company-scaled.jpg","id":12,"dimRatio":0,"minHeight":500,"isDark":false} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:cover {"url":"__PLUGIN_URL__beautiful-female-office-worker-carrying-out-administrative-work-company-scaled.jpg","id":12,"dimRatio":0,"minHeight":500,"isDark":false} -->
 <div class="wp-block-cover is-light" style="min-height:500px"><img class="wp-block-cover__image-background wp-image-12" alt="" src="__PLUGIN_URL__beautiful-female-office-worker-carrying-out-administrative-work-company-scaled.jpg" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size"></p>
 <!-- /wp:paragraph --></div></div>
@@ -39,7 +46,7 @@
 
 <!-- wp:columns {"verticalAlignment":"bottom","align":"wide"} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-bottom"><!-- wp:column {"verticalAlignment":"bottom"} -->
-<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:cover {"url":"http://extendify-playground.test/wp-content/uploads/2026/04/stylish-female-web-programmers-talking-about-work-while-spending-time-office-indoor-portrait-african-woman-headphones-asian-worker-using-computers-scaled.jpg","id":26,"dimRatio":0,"minHeight":250,"isDark":false} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:cover {"url":"__PLUGIN_URL__stylish-female-web-programmers-talking-about-work-while-spending-time-office-indoor-portrait-african-woman-headphones-asian-worker-using-computers-scaled.jpg","id":26,"dimRatio":0,"minHeight":250,"isDark":false} -->
 <div class="wp-block-cover is-light" style="min-height:250px"><img class="wp-block-cover__image-background wp-image-26" alt="" src="__PLUGIN_URL__stylish-female-web-programmers-talking-about-work-while-spending-time-office-indoor-portrait-african-woman-headphones-asian-worker-using-computers-scaled.jpg" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size"></p>
 <!-- /wp:paragraph --></div></div>
